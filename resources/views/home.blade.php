@@ -3,25 +3,35 @@
 
 @section('content')
 
-<h1>Elenco</h1>
 <div class="container my-5">
+    <h1>Elenco Treni in partenza oggi</h1>
+
+
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">id</th>
+                <th scope="col">Compagnia</th>
+                <th scope="col">Stazione di arrivo</th>
+                <th scope="col">Stazione di partenza</th>
+                <th scope="col">Orario di arrivo</th>
+                <th scope="col">Orario di partenza</th>
             </tr>
         </thead>
+        @forelse ($trains as $train)
         <tbody>
             <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th>{{ $train->id }}</th>
+                <th>{{ $train->company }}</th>
+                <th>{{ $train->arrival_station }}</th>
+                <th>{{ $train->departure_station }}</th>
+                <th>{{ $train->arrival_time }}</th>
+                <th>{{ $train->departure_time }}</th>
             </tr>
         </tbody>
+        @empty
+        <h2>Nessun treno è in partenza in data odierna</h2>
+        @endforelse
     </table>
 </div>
 
