@@ -18,7 +18,7 @@
                 <th scope="col">Orario di partenza</th>
             </tr>
         </thead>
-        @forelse ($trains as $train)
+        @foreach ($trains as $train)
         <tbody>
             <tr>
                 <th>{{ $train->id }}</th>
@@ -29,9 +29,9 @@
                 <th>{{ $train->departure_time }}</th>
             </tr>
         </tbody>
-        @empty
-        <h2>Nessun treno è in partenza in data odierna</h2>
-        @endforelse
+        @endforeach
+
+
     </table>
 </div>
 
